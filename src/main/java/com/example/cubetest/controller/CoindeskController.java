@@ -13,9 +13,14 @@ public class CoindeskController {
     @Autowired
     private CoindeskService coindeskService;
 
-    // 呼叫 Coindesk API 並轉換資料格式
     @GetMapping("/fetch")
-    public Map<String, Object> getCoindeskData() {
+    public String fetchCoindeskData() {
         return coindeskService.fetchCoindeskData();
+    }
+
+    // 呼叫 Coindesk API 並轉換資料格式
+    @GetMapping("/transform")
+    public Map<String, Object> transformCoindeskData() {
+        return coindeskService.transformCoindeskData();
     }
 }

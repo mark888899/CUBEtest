@@ -19,7 +19,12 @@ public class CoindeskService {
     @Autowired
     private CurrencyRepository currencyRepository;
 
-    public Map<String, Object> fetchCoindeskData() {
+    public String fetchCoindeskData() {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(COINDESK_API_URL, String.class);
+    }
+
+    public Map<String, Object> transformCoindeskData() {
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(COINDESK_API_URL, String.class);
 
