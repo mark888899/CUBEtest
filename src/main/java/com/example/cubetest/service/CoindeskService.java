@@ -49,7 +49,7 @@ public class CoindeskService {
             Map<String, String> currencyData = new HashMap<>();
             currencyData.put("code", currencyObj.getString("code"));
             currencyData.put("rate", currencyObj.getString("rate"));
-            currencyData.put("name", getCurrencyNameFromDB(currencyObj.getString("code"))); // **從 DB 查詢幣別名稱**
+            currencyData.put("name", this.getCurrencyNameFromDB(currencyObj.getString("code")));
             currencies.put(key, currencyData);
         }
 
